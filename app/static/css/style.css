@@ -1,0 +1,127 @@
+/* Основные стили */
+:root {
+  --neon-blue: #0ff0fc;
+  --neon-pink: #ff2a6d;
+  --dark-bg: #0d0221;
+  --darker-bg: #060114;
+  --text-color: #f8f8f8;
+  --card-bg: rgba(13, 2, 33, 0.8);
+  --glow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-color);
+  font-family: 'Courier New', monospace;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Навигация в стиле киберпанк */
+.navbar {
+  background-color: var(--darker-bg) !important;
+  border-bottom: 1px solid var(--neon-blue);
+  box-shadow: var(--glow);
+}
+
+.navbar-brand, .nav-link {
+  color: var(--neon-blue) !important;
+  text-shadow: var(--glow);
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--neon-pink) !important;
+  text-shadow: 0 0 10px var(--neon-pink);
+}
+
+/* Карточки и формы */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--neon-blue);
+  box-shadow: var(--glow);
+  border-radius: 0;
+  margin-bottom: 2rem;
+}
+
+.form-control {
+  background-color: rgba(6, 1, 20, 0.7);
+  border: 1px solid var(--neon-blue);
+  color: var(--text-color);
+  border-radius: 0;
+}
+
+.form-control:focus {
+  background-color: rgba(6, 1, 20, 0.9);
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 10px var(--neon-pink);
+  color: var(--text-color);
+}
+
+/* Кнопки */
+.btn-primary {
+  background-color: transparent;
+  border: 1px solid var(--neon-blue);
+  color: var(--neon-blue);
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--neon-blue);
+  color: var(--dark-bg);
+  box-shadow: var(--glow);
+}
+
+/* Адаптация под мобильные устройства */
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem;
+  }
+
+  .card {
+    margin: 1rem 0;
+  }
+
+  .form-control {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Эффекты для текста */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--neon-blue);
+  text-shadow: var(--glow);
+}
+
+a {
+  color: var(--neon-pink);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--neon-blue);
+  text-shadow: var(--glow);
+}
+
+/* Анимация мигания (опционально) */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.blink {
+  animation: blink 2s infinite;
+}
