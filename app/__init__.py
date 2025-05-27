@@ -1,6 +1,9 @@
+# noinspection PyUnresolvedReferences
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+# noinspection PyUnresolvedReferences
 from flask_bcrypt import Bcrypt
+# noinspection PyUnresolvedReferences
 from flask_login import LoginManager
 from config import Config
 
