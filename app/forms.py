@@ -4,33 +4,33 @@ from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationE
 from app.models import User
 
 class RegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
+    username = StringField('Имя пользователя', validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    confirm_password = PasswordField('Confirm Password',
+    password = PasswordField('Пароль', validators=[DataRequired()])
+    confirm_password = PasswordField('Подтвердите пароль',
                                    validators=[DataRequired(), EqualTo('password')])
-    submit = SubmitField('Sign Up')
+    submit = SubmitField('Зарегистрироваться')
 
     def validate_username(self, username):
         user = User.query.filter_by(username=username.data).first()
         if user:
-            raise ValidationError('That username is taken. Please choose a different one.')
+            raise ValidationError('Имя пользователя занято. Пожалуйста, выберите другое имя.')
 
     def validate_email(self, email):
         user = User.query.filter_by(email=email.data).first()
         if user:
-            raise ValidationError('That email is taken. Please choose a different one.')
+            raise ValidationError('Этот email уже занят. Пожалуйста, используйте другой email.')
 
 class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Login')
+    password = PasswordField('Пароль', validators=[DataRequired()])
+    submit = SubmitField('Войти')
 
 class EditProfileForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
+    username = StringField('Имя пользователя', validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    current_password = PasswordField('Current Password', validators=[DataRequired()])
-    new_password = PasswordField('New Password', validators=[Length(min=6)])
-    confirm_password = PasswordField('Confirm New Password',
-                                   validators=[EqualTo('new_password', message='Passwords must match')])
-    submit = SubmitField('Update Profile')
+    current_password = PasswordField('Старый Пароль', validators=[DataRequired()])
+    new_password = PasswordField('Новый Пароль', validators=[Length(min=6)])
+    confirm_password = PasswordField('Подтвердите Пароль',
+                                   validators=[EqualTo('new_password', message='Пароли не совпадают')])
+    submit = SubmitField('Обновить профиль')

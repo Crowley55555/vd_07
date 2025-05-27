@@ -18,11 +18,11 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <div class="navbar-nav ms-auto">
           {% if current_user.is_authenticated %}
-            <a class="nav-link" href="{{ url_for('main.profile') }}">PROFILE</a>
-            <a class="nav-link" href="{{ url_for('main.logout') }}">LOGOUT</a>
+            <a class="nav-link" href="{{ url_for('main.profile') }}">Профиль</a>
+            <a class="nav-link" href="{{ url_for('main.logout') }}">Выйти</a>
           {% else %}
-            <a class="nav-link" href="{{ url_for('main.login') }}">LOGIN</a>
-            <a class="nav-link" href="{{ url_for('main.register') }}">REGISTER</a>
+            <a class="nav-link" href="{{ url_for('main.login') }}">Вход</a>
+            <a class="nav-link" href="{{ url_for('main.register') }}">Регистрация</a>
           {% endif %}
         </div>
       </div>
